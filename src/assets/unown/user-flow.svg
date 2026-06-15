@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#1C3F52" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadowKey" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#1C3F52" flood-opacity="0.18"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowKey" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1C3F52"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="1100" fill="#ffffff"/>
+
+  <!-- Step 1: Website -->
+  <g filter="url(#shadow)">
+    <rect x="220" y="50" width="360" height="200" rx="20" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+  <text x="240" y="85" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="2" fill="#1C3F52" opacity="0.55">01</text>
+  <g transform="translate(360 100)">
+    <rect x="0" y="0" width="80" height="56" rx="6" fill="none" stroke="#1C3F52" stroke-width="1.6"/>
+    <line x1="0" y1="14" x2="80" y2="14" stroke="#1C3F52" stroke-width="1.6"/>
+    <circle cx="8" cy="7" r="1.8" fill="#1C3F52"/>
+    <circle cx="15" cy="7" r="1.8" fill="#1C3F52"/>
+    <circle cx="22" cy="7" r="1.8" fill="#1C3F52"/>
+    <line x1="10" y1="26" x2="58" y2="26" stroke="#1C3F52" stroke-width="1.4" opacity="0.4"/>
+    <line x1="10" y1="34" x2="50" y2="34" stroke="#1C3F52" stroke-width="1.4" opacity="0.4"/>
+    <line x1="10" y1="42" x2="62" y2="42" stroke="#1C3F52" stroke-width="1.4" opacity="0.4"/>
+  </g>
+  <text x="400" y="200" text-anchor="middle" font-size="22" font-weight="600" fill="#1C3F52">Website</text>
+  <text x="400" y="226" text-anchor="middle" font-size="14" fill="#1C3F52" opacity="0.65">Browse products / explore brand</text>
+
+  <!-- Arrow 1 -> 2 (KEY) -->
+  <line x1="400" y1="270" x2="400" y2="370" stroke="#1C3F52" stroke-width="3" marker-end="url(#arrowKey)"/>
+  <text x="420" y="325" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1.5" fill="#F58220" font-weight="600">KEY TRANSITION</text>
+
+  <!-- Step 2: Mobile App (highlighted, taller) -->
+  <g filter="url(#shadowKey)">
+    <rect x="220" y="390" width="360" height="280" rx="20" fill="#ffffff" stroke="#1C3F52" stroke-width="2"/>
+  </g>
+  <text x="240" y="425" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="2" fill="#1C3F52" opacity="0.7">02</text>
+  <!-- Phone icon -->
+  <g transform="translate(370 445)">
+    <rect x="0" y="0" width="60" height="110" rx="10" fill="none" stroke="#1C3F52" stroke-width="2"/>
+    <line x1="22" y1="8" x2="38" y2="8" stroke="#1C3F52" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="30" cy="100" r="2.5" fill="#1C3F52"/>
+  </g>
+  <text x="400" y="615" text-anchor="middle" font-size="22" font-weight="700" fill="#1C3F52">Mobile App</text>
+  <text x="400" y="643" text-anchor="middle" font-size="14" fill="#1C3F52" opacity="0.65">Download and open app</text>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="400" y1="690" x2="400" y2="790" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Purchase -->
+  <g filter="url(#shadow)">
+    <rect x="220" y="810" width="360" height="210" rx="20" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+  </g>
+  <text x="240" y="845" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="2" fill="#1C3F52" opacity="0.55">03</text>
+  <g transform="translate(370 860)">
+    <circle cx="30" cy="30" r="26" fill="none" stroke="#1C3F52" stroke-width="1.8"/>
+    <path d="M18 31 L27 40 L43 22" fill="none" stroke="#1C3F52" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="400" y="965" text-anchor="middle" font-size="22" font-weight="600" fill="#1C3F52">Purchase</text>
+  <text x="400" y="991" text-anchor="middle" font-size="14" fill="#1C3F52" opacity="0.65">Complete purchase</text>
+
+  <!-- Caption -->
+  <text x="400" y="1065" text-anchor="middle" font-size="13" font-style="italic" fill="#1C3F52" opacity="0.5">User behavior flow based on analytics insights</text>
+</svg>

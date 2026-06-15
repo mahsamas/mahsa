@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Satoshi", system-ui, sans-serif;
+  --font-satoshi: "Satoshi", system-ui, sans-serif;
+
+  --color-brand: #6439ff;
+  --color-hero-bg: #f5f7fa;
+  --color-text-muted: rgba(0, 0, 0, 0.55);
+  --color-label: rgba(0, 0, 0, 0.35);
+  --color-tag-text: rgba(0, 0, 0, 0.7);
+  --color-divider: rgba(0, 0, 0, 0.1);
+  --color-tag-border: rgba(0, 0, 0, 0.15);
+  --color-placeholder: rgba(0, 0, 0, 0.3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-satoshi);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
