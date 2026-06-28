@@ -1,98 +1,172 @@
-import dabFinalConcept from "../../assets/dab/dab-final-concept.png";
-import dabHero from "../../assets/dab/dab-hero.jpg";
+import dabHeroVideo from "../../assets/dab/dab-hero.mov";
+import dabConcept1 from "../../assets/dab/dab-concept-1.png";
+import dabConcept2 from "../../assets/dab/dab-concept-2.png";
 import dabKeyProblem from "../../assets/dab/dab-key-problem.png";
-import dabOverview from "../../assets/dab/overview.svg";
-import { CaseStudyLayout } from "../../components/case-study";
+import dabOldTable from "../../assets/dab/dab-old-table.png";
+import {
+  CaseStudyLayout,
+  ExperienceLevelsCard,
+  Highlight,
+  ImageWithCaptionGroup,
+  UserInsightQuoteCardGroup,
+  caseStudySectionBodyClassName,
+  type UserInsightQuoteCardData,
+  UxImpactSection,
+  type UxImpactSectionData,
+} from "../../components/case-study";
+
+const dabUxImpact: UxImpactSectionData = {
+  sectionLabel: "Impact based on UX improvements",
+  groups: [
+    {
+      cards: [
+        {
+          number: 1,
+          title: "Clearer input process",
+          text: "Users found the process of entering required inputs much clearer and easier to follow after the redesign.",
+          accent: "orange",
+        },
+        {
+          number: 2,
+          title: "Better table navigation",
+          text: "The results table felt clearer and easier to navigate, with necessary filters visible and accessible.",
+          accent: "lavender",
+        },
+        {
+          number: 3,
+          title: "Clearer error messaging",
+          text: "Error messages and their causes were presented more clearly, helping users understand issues faster.",
+          accent: "orange",
+        },
+        {
+          number: 4,
+          title: "Less workflow frustration",
+          text: "The restructured workflow helped users continue their tasks with less confusion and frustration.",
+          accent: "lavender",
+        },
+      ],
+    },
+  ],
+};
+
+const dabSupportTicketInsights: UserInsightQuoteCardData[] = [
+  {
+    avatarVariant: "consultant",
+    role: "SAP Consultant",
+    insight: "Connection and authentication failures were hard to diagnose",
+    quote:
+      "We entered the credentials three times and still couldn't tell if the connection actually worked or what went wrong.",
+  },
+  {
+    avatarVariant: "analyst",
+    role: "Data Analyst",
+    insight: "Extraction jobs felt stuck without visible progress",
+    quote:
+      "The job just sits there — I don't know if it's still running or if something broke in the background.",
+  },
+  {
+    avatarVariant: "admin",
+    role: "IT Admin",
+    insight: "The progress screen didn't explain what was happening",
+    quote:
+      "The screen shows steps, but I still don't understand what's happening or how long the extraction will take.",
+  },
+];
 
 export function DabCaseStudy() {
   return (
     <CaseStudyLayout
-      heroMedia={{ type: "image", src: dabHero, alt: "dab Agent Application" }}
+      heroMedia={{ type: "video", src: dabHeroVideo }}
       title="Optimizing data extraction for a SaaS analytics platform"
       role="UX/UI Designer"
-      team="2 Designers"
+      team="One junior designer, one full-stack developer, one product owner"
       tools="Figma"
-      duration="Multi-month"
+      duration="3 month"
       methods={[
         "User Research",
+        "Information Architecture",
+        "Site Mapping",
+        "Information Hierarchy",
         "Wireframing",
-        "Usability Testing",
         "Prototyping",
+        "Usability Testing",
       ]}
-      contextSubtitle="About dab Agent & My Role"
+      contextSubtitle="What is dab Agent?"
       contextImages={[
-        {
-          src: dabOverview,
-          caption: "dab Agent Application overview",
-        },
-        {
-          src: dabFinalConcept,
-          caption: "Final Concept (Step-Based Layout)",
-        },
-      ]}
-      context="This application enables technical users (e.g. data or business analysts) to connect to external systems (such as SAP), validate configurations, and run data extraction or analytics processes with clear progress feedback."
-      contextFollowUpSubtitle="My role"
-      contextFollowUp={
-        <>
-          I worked as a UI/UX designer in a small team alongside another designer,
-          focusing on structuring the workflow and improving system visibility. This
-          helped simplify a complex technical process and made it easier to
-          understand and follow.
-        </>
-      }
-      problemSubtitle="The Challenge"
-      problemImages={[
         {
           src: dabKeyProblem,
           caption: "Old user interface of web application",
         },
+        {
+          src: dabOldTable,
+          caption: "Old table page of user interface",
+        },
       ]}
-      problem="From user feedback, it was clear that the tool was too complex for many users. Because it lacked clear guidance, validation, and onboarding, users often made mistakes, had connection problems, and found the results hard to understand. This made the tool frustrating for non-technical users."
-      solutionSubtitle="Exploring two design directions"
-      solution={
+      contextImagesUniformHeight={false}
+      context="dab Agent is a web desktop application used to connect customer SAP systems, validate connection configurations, and run data extraction or analytics workflows. The tool supports connection setup, validation testing, and helps users identify where issues occur when setup fails."
+      contextFollowUpSubtitle="Who are the users?"
+      contextFollowUp={
         <>
-          I created and tested two design concepts. While users initially preferred
-          the first for its familiarity, it showed usability and scalability
-          limitations. We selected the second design for its step-by-step guidance,
-          reduced complexity, and better alignment with system logic and future
-          scalability.
-          <br />
-          <br />
-          The final wireframes translate the step-based concept into a complete
-          end-to-end flow — covering connection setup, server type, and every
-          authentication path the tool supports. Key changes included replacing
-          tabs with step indicators, removing distracting table actions, and
-          simplifying form labels so required fields are clear by default.
-          <br />
-          <br />
-          The final UI brings the step-based concept to life — a calm, guided flow
-          with clear progress, focused forms, and consistent patterns across every
-          connection and authentication path.
+          dab is used by professional B2B users:{" "}
+          <Highlight>dab employees</Highlight> who support customer onboarding
+          and connection setup, and technical users on the customer side such as{" "}
+          <Highlight>SAP consultants</Highlight>,{" "}
+          <Highlight>data analysts</Highlight>,{" "}
+          <Highlight>IT admins</Highlight>, and{" "}
+          <Highlight>onboarding teams</Highlight> who need to configure and
+          validate SAP connections.
         </>
       }
+      problemSubtitle="Understanding the Problem"
+      problem="Support tickets from three months of use showed the same problems coming up again and again — especially around connection setup and data extraction."
+      problemFollowUpSubtitle="Where do users get stuck most often?"
+      problemFollowUp={
+        <>
+          <p className={caseStudySectionBodyClassName}>
+            Three themes appeared repeatedly across tickets: connection and
+            authentication problems, extraction jobs that felt frozen without
+            feedback, and a progress screen that failed to explain what the
+            system was doing.
+          </p>
+          <UserInsightQuoteCardGroup cards={dabSupportTicketInsights} />
+        </>
+      }
+      solution={
+        <ExperienceLevelsCard
+          title="Exploring two design directions"
+          columns={[
+            {
+              title: "All-in-one layout",
+              subtitle:
+                "All setup fields were visible on one screen. This gave users full visibility, but increased visual complexity and made troubleshooting slower when required information was missed.",
+            },
+            {
+              title: "Step-based layout",
+              subtitle:
+                "The setup was divided into Basic information, Authentication, and RFC settings. This helped users focus on one step at a time and made errors easier to locate.",
+            },
+          ]}
+          designDecision="The step-based layout was selected because it reduced complexity, lowered the risk of missed inputs, and made the setup flow clearer and faster to troubleshoot."
+        >
+          <div className="-mx-5 border-t border-[#8B6FD4]/30 sm:-mx-6">
+            <ImageWithCaptionGroup
+              images={[
+                {
+                  src: dabConcept1,
+                  caption: "Design concept 1 — familiar single-page layout",
+                },
+                {
+                  src: dabConcept2,
+                  caption: "Design concept 2 — step-based guided flow",
+                },
+              ]}
+              uniformHeight={false}
+            />
+          </div>
+        </ExperienceLevelsCard>
+      }
       impactSubtitle="Clearer steps, fewer errors"
-      impacts={[
-        {
-          title: "Clearer input process",
-          description:
-            "Users found the process of entering required inputs much clearer and easier to follow after the redesign.",
-        },
-        {
-          title: "Better table navigation",
-          description:
-            "The results table felt clearer and easier to navigate, with necessary filters visible and accessible.",
-        },
-        {
-          title: "Clearer error messaging",
-          description:
-            "Error messages and their causes were presented more clearly, helping users understand issues faster.",
-        },
-        {
-          title: "Less workflow frustration",
-          description:
-            "The restructured workflow helped users continue their tasks with less confusion and frustration.",
-        },
-      ]}
+      impactContent={<UxImpactSection {...dabUxImpact} />}
       reflectionSubtitle="What I learned"
       reflection="This project taught me that in complex products, every small detail matters more than you think. While working on the interface, I realized that users notice everything — from the clarity of an icon to the way a progress bar moves or how information is organized inside a table."
     />

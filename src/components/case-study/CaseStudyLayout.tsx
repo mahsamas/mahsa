@@ -31,15 +31,20 @@ export type CaseStudyLayoutProps = {
   context: ReactNode;
   contextSubtitle?: string;
   contextImages?: CaptionedImage[];
+  contextImagesAfterFollowUp?: boolean;
+  contextImagesUniformHeight?: boolean;
   contextFollowUpSubtitle?: string;
   contextFollowUp?: ReactNode;
   problem: ReactNode;
   problemSubtitle?: string;
   problemImages?: CaptionedImage[];
+  problemFollowUpSubtitle?: string;
+  problemFollowUp?: ReactNode;
   solution: ReactNode;
   solutionSubtitle?: string;
   impactSubtitle?: string;
-  impacts: ImpactItem[];
+  impacts?: ImpactItem[];
+  impactContent?: ReactNode;
   reflection: ReactNode;
   reflectionSubtitle?: string;
 };
@@ -55,15 +60,20 @@ export function CaseStudyLayout({
   context,
   contextSubtitle,
   contextImages = [],
+  contextImagesAfterFollowUp = false,
+  contextImagesUniformHeight = true,
   contextFollowUpSubtitle,
   contextFollowUp,
   problem,
   problemSubtitle,
   problemImages = [],
+  problemFollowUpSubtitle,
+  problemFollowUp,
   solution,
   solutionSubtitle,
   impactSubtitle,
-  impacts,
+  impacts = [],
+  impactContent,
   reflection,
   reflectionSubtitle,
 }: CaseStudyLayoutProps) {
@@ -105,11 +115,10 @@ export function CaseStudyLayout({
             <ContextSectionContent
               intro={context}
               images={contextImages}
+              imagesAfterFollowUp={contextImagesAfterFollowUp}
+              imagesUniformHeight={contextImagesUniformHeight}
               usersTitle={contextFollowUpSubtitle ?? "Who are the users?"}
-              usersText={
-                contextFollowUp ??
-                "ROSCT is used by different user groups: experienced Fraunhofer researchers who develop and refine the scanner, master's students conducting thesis-related experiments, and external customers who need to operate the system without deep technical knowledge."
-              }
+              usersText={contextFollowUp}
             />
           </CaseStudySection>
 
@@ -124,6 +133,8 @@ export function CaseStudyLayout({
               text={problem}
               images={problemImages}
               imagesFirst
+              followUpSubtitle={problemFollowUpSubtitle}
+              followUpText={problemFollowUp}
             />
           </CaseStudySection>
 
@@ -146,15 +157,17 @@ export function CaseStudyLayout({
                 {impactSubtitle}
               </h3>
             ) : null}
-            <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {impacts.map((impact) => (
-                <ImpactCard
-                  key={impact.title}
-                  title={impact.title}
-                  description={impact.description}
-                />
-              ))}
-            </div>
+            {impactContent ?? (
+              <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {impacts.map((impact) => (
+                  <ImpactCard
+                    key={impact.title}
+                    title={impact.title}
+                    description={impact.description}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           <Divider />

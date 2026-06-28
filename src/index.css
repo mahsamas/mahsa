@@ -31,3 +31,52 @@ body {
   width: 100%;
   min-height: 100svh;
 }
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(var(--wiggle-base, 0deg));
+  }
+  50% {
+    transform: rotate(calc(var(--wiggle-base, 0deg) + 3deg));
+  }
+}
+
+.animate-float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+.hover-wiggle:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-soft,
+  .animate-spin-slow,
+  .hover-wiggle:hover {
+    animation: none;
+  }
+}

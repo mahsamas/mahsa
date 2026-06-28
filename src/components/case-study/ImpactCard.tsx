@@ -1,3 +1,5 @@
+import { caseStudySectionBodyClassName } from "./CaseStudySectionContent";
+
 type ImpactCardProps = {
   title: string;
   description: string;
@@ -9,9 +11,7 @@ export function ImpactCard({ title, description }: ImpactCardProps) {
       <h3 className="text-[14px] leading-5 font-medium text-black">
         {title}
       </h3>
-      <p className="text-[13px] leading-[19px] font-normal text-text-muted">
-        {description}
-      </p>
+      <p className={caseStudySectionBodyClassName}>{description}</p>
     </div>
   );
 }

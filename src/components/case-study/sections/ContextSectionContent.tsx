@@ -12,6 +12,8 @@ type ContextSectionContentProps = {
   images: CaptionedImage[];
   usersTitle: string;
   usersText: ReactNode;
+  imagesAfterFollowUp?: boolean;
+  imagesUniformHeight?: boolean;
 };
 
 export function ContextSectionContent({
@@ -19,15 +21,48 @@ export function ContextSectionContent({
   images,
   usersTitle,
   usersText,
+  imagesAfterFollowUp = false,
+  imagesUniformHeight = true,
 }: ContextSectionContentProps) {
+  const gallery =
+    images.length > 0 ? (
+      <ImageWithCaptionGroup
+        images={images}
+        uniformHeight={imagesUniformHeight}
+      />
+    ) : null;
+  const followUp = usersText ? (
+    <div className="flex w-full flex-col gap-1">
+      <h3 className={caseStudySectionSubtitleClassName}>{usersTitle}</h3>
+      <p className={caseStudySectionBodyClassName}>{usersText}</p>
+    </div>
+  ) : null;
+
+  const introContent =
+    typeof intro === "string" ? (
+      <p className={caseStudySectionBodyClassName}>{intro}</p>
+    ) : (
+      <div
+        className={`flex w-full flex-col gap-6 [&_p]:m-0 ${caseStudySectionBodyClassName}`}
+      >
+        {intro}
+      </div>
+    );
+
   return (
     <div className={caseStudySectionContentClassName}>
-      <p className={caseStudySectionBodyClassName}>{intro}</p>
-      {images.length > 0 ? <ImageWithCaptionGroup images={images} /> : null}
-      <div className="flex w-full flex-col gap-1">
-        <h3 className={caseStudySectionSubtitleClassName}>{usersTitle}</h3>
-        <p className={caseStudySectionBodyClassName}>{usersText}</p>
-      </div>
+      {introContent}
+      {imagesAfterFollowUp ? (
+        <>
+          {followUp}
+          {gallery}
+        </>
+      ) : (
+        <>
+          {gallery}
+          {followUp}
+        </>
+      )}
     </div>
   );
 }

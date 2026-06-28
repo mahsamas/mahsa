@@ -11,9 +11,9 @@ type NavbarProps = {
 };
 
 const defaultLinks: NavLink[] = [
-  { label: "Work", href: "/#work" },
-  { label: "About", href: "/#about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Home", href: "/" },
+  { label: "Work", href: "/work" },
+  { label: "About me", href: "/about" },
 ];
 
 export function Navbar({
@@ -36,12 +36,21 @@ export function Navbar({
         <ul className="flex items-center gap-8">
           {links.map((link) => (
             <li key={link.label}>
-              <Link
-                to={link.href}
-                className="text-[14px] leading-5 font-normal text-black transition-colors hover:text-brand active:text-brand"
-              >
-                {link.label}
-              </Link>
+              {link.href.startsWith("#") ? (
+                <a
+                  href={link.href}
+                  className="text-[14px] leading-5 font-normal text-black transition-colors hover:text-brand active:text-brand"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  to={link.href}
+                  className="text-[14px] leading-5 font-normal text-black transition-colors hover:text-brand active:text-brand"
+                >
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
