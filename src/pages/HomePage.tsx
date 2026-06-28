@@ -84,7 +84,7 @@ function Polaroid({ className = "" }: { className?: string }) {
         className="aspect-[3/4] w-full rounded-md object-cover object-top"
       />
       <p className="px-1 pt-2.5 pb-1 text-[13px] leading-4 text-text-muted">
-        hi, that&apos;s me
+        Hi, that&apos;s me — nice to meet you :)
       </p>
     </div>
   );
@@ -141,7 +141,7 @@ function WorkCta({ className = "" }: { className?: string }) {
 
 export function HomePage() {
   return (
-    <div className="relative mx-auto w-full max-w-[1034px] overflow-hidden px-6 py-12 sm:px-12 sm:py-20">
+    <div className="relative mx-auto w-full max-w-[1200px] overflow-hidden px-6 py-12 sm:px-12 sm:py-20">
       {/* Soft brand backdrop */}
       <div
         className="pointer-events-none absolute -top-24 -left-24 size-72 rounded-full bg-brand/10 blur-3xl"
@@ -152,48 +152,50 @@ export function HomePage() {
         aria-hidden
       />
 
-      {/* Mobile / small screens: clean stacked layout */}
-      <div className="flex flex-col gap-6 lg:hidden">
-        <AvailableBadge />
-        <IntroCard />
-        <div className="flex items-start gap-4">
-          <Polaroid className="w-[150px] shrink-0 -rotate-2" />
-          <BioCard className="rotate-1" />
-        </div>
-        <WorkCta />
-      </div>
-
-      {/* Large screens: overlapping playful collage */}
-      <div className="relative hidden h-[600px] lg:block">
-        <div className="absolute top-0 left-[2px]">
+      <div className="relative mx-auto w-full max-w-[1034px]">
+        {/* Mobile / small screens: clean stacked layout */}
+        <div className="flex flex-col gap-6 lg:hidden">
           <AvailableBadge />
+          <IntroCard />
+          <div className="flex items-start gap-4">
+            <Polaroid className="w-[150px] shrink-0 -rotate-2" />
+            <BioCard className="rotate-1" />
+          </div>
+          <WorkCta />
         </div>
 
-        <IntroCard className="absolute top-[72px] left-0 w-[470px] -rotate-2 hover-wiggle [--wiggle-base:-2deg]" />
+        {/* Large screens: close, two-column playful collage */}
+        <div className="relative hidden min-h-[620px] grid-cols-[470px_410px] justify-center gap-14 lg:grid">
+          <div className="order-2 relative flex flex-col items-center gap-7 pt-2">
+            <div className="w-[196px] animate-float-soft">
+              <Polaroid className="-rotate-2" />
+            </div>
 
-        <div className="absolute top-0 right-[44px] w-[196px] animate-float-soft">
-          <Polaroid className="rotate-3" />
+            <BioCard className="w-full -rotate-1 hover-wiggle [--wiggle-base:-1deg]" />
+          </div>
+
+          <div className="order-1 relative flex flex-col items-start gap-6 pt-12">
+            <AvailableBadge />
+            <IntroCard className="w-full rotate-1 hover-wiggle [--wiggle-base:1deg]" />
+            <WorkCta className="mt-2 ml-6 animate-float-soft" />
+          </div>
+
+          {/* Scattered playful shapes */}
+          <Star className="absolute top-[28px] left-[455px] size-7 rotate-6 animate-spin-slow text-brand/80" />
+          <span
+            className="absolute right-[28px] bottom-[100px] size-4 rotate-45 rounded-[3px] bg-brand/70"
+            aria-hidden
+          />
+          <span
+            className="absolute top-[22px] right-[120px] size-5 rotate-45 border-[3px] border-brand/50"
+            aria-hidden
+          />
+          <Squiggle className="absolute bottom-[92px] left-[90px] h-4 w-24 -rotate-6 text-brand/40" />
+          <span
+            className="absolute right-[250px] bottom-[36px] size-3 rounded-full bg-black/70"
+            aria-hidden
+          />
         </div>
-
-        <BioCard className="absolute top-[300px] right-0 w-[410px] rotate-2 hover-wiggle [--wiggle-base:2deg]" />
-
-        {/* Scattered playful shapes */}
-        <Star className="absolute top-[150px] right-[280px] size-7 rotate-6 animate-spin-slow text-brand/80" />
-        <span
-          className="absolute top-[470px] right-[300px] size-4 rotate-45 rounded-[3px] bg-brand/70"
-          aria-hidden
-        />
-        <span
-          className="absolute top-[40px] left-[490px] size-5 rotate-45 border-[3px] border-brand/50"
-          aria-hidden
-        />
-        <Squiggle className="absolute bottom-[120px] left-[150px] h-4 w-24 -rotate-6 text-brand/40" />
-        <span
-          className="absolute bottom-[60px] right-[170px] size-3 rounded-full bg-black/70"
-          aria-hidden
-        />
-
-        <WorkCta className="absolute bottom-[24px] left-[40px] animate-float-soft" />
       </div>
     </div>
   );

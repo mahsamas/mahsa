@@ -55,10 +55,10 @@ export function StickySideNav() {
 
   return (
     <nav
-      className="sticky top-20 hidden w-36 shrink-0 self-start lg:block"
+      className="sticky top-28 hidden w-44 shrink-0 self-start lg:block"
       aria-label="Case study sections"
     >
-      <ul className="flex flex-col gap-3">
+      <ul className="flex flex-col gap-2">
         {CASE_STUDY_SECTIONS.map((section) => {
           const isActive = activeId === section.id;
 
@@ -68,10 +68,18 @@ export function StickySideNav() {
                 href={`#${section.id}`}
                 aria-current={isActive ? "true" : undefined}
                 onClick={() => setActiveId(section.id)}
-                className={`text-[14px] leading-5 font-normal transition-colors hover:text-brand ${
-                  isActive ? "text-brand" : "text-text-muted"
+                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-[17px] leading-6 font-semibold tracking-[-0.17px] transition-colors hover:bg-brand/5 hover:text-brand ${
+                  isActive
+                    ? "bg-brand/10 font-bold text-brand"
+                    : "text-text-muted"
                 }`}
               >
+                <span
+                  className={`size-2 shrink-0 rounded-full transition-colors ${
+                    isActive ? "bg-brand" : "bg-divider"
+                  }`}
+                  aria-hidden
+                />
                 {section.label}
               </a>
             </li>

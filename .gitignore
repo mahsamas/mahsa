@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Local source video; the browser-ready MP4 is committed instead
+src/assets/dab/dab-final-prototype.mov
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

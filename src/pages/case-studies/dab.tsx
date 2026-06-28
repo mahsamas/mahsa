@@ -1,4 +1,5 @@
 import dabHeroVideo from "../../assets/dab/dab-hero.mov";
+import dabFinalPrototype from "../../assets/dab/dab-final-prototype.mp4";
 import dabConcept1 from "../../assets/dab/dab-concept-1.png";
 import dabConcept2 from "../../assets/dab/dab-concept-2.png";
 import dabKeyProblem from "../../assets/dab/dab-key-problem.png";
@@ -164,6 +165,25 @@ export function DabCaseStudy() {
             />
           </div>
         </ExperienceLevelsCard>
+      }
+      solutionFollowUp={
+        <section className="flex w-full flex-col gap-4" aria-labelledby="final-prototype-title">
+          <h3
+            id="final-prototype-title"
+            className="text-2xl font-semibold tracking-tight text-primary sm:text-3xl"
+          >
+            Final prototype
+          </h3>
+          <video
+            className="aspect-video w-full rounded-2xl border border-[#8B6FD4]/20 bg-black object-contain shadow-sm"
+            controls
+            playsInline
+            preload="metadata"
+          >
+            <source src={dabFinalPrototype} type="video/mp4" />
+            Your browser does not support embedded videos.
+          </video>
+        </section>
       }
       impactSubtitle="Clearer steps, fewer errors"
       impactContent={<UxImpactSection {...dabUxImpact} />}
