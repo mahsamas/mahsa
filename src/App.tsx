@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
 import { AboutPage } from "./pages/AboutPage";
 import { HomePage } from "./pages/HomePage";
@@ -10,9 +11,9 @@ import { UnownCaseStudy } from "./pages/case-studies/unown";
 function App() {
   return (
     <BrowserRouter>
-      <div className="font-satoshi min-h-svh bg-white text-left">
+      <div className="font-satoshi flex min-h-svh flex-col bg-white text-left">
         <Navbar />
-        <main className="w-full">
+        <main className="w-full flex-1">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/work" element={<WorkPage />} />
@@ -22,6 +23,7 @@ function App() {
             <Route path="/case-studies/unown" element={<UnownCaseStudy />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </BrowserRouter>
   );

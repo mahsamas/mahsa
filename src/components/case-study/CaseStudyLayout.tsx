@@ -42,6 +42,7 @@ export type CaseStudyLayoutProps = {
   problemFollowUp?: ReactNode;
   solution: ReactNode;
   solutionSubtitle?: string;
+  solutionFollowUp?: ReactNode;
   impactSubtitle?: string;
   impacts?: ImpactItem[];
   impactContent?: ReactNode;
@@ -71,6 +72,7 @@ export function CaseStudyLayout({
   problemFollowUp,
   solution,
   solutionSubtitle,
+  solutionFollowUp,
   impactSubtitle,
   impacts = [],
   impactContent,
@@ -81,7 +83,7 @@ export function CaseStudyLayout({
     <article className="flex w-full flex-col items-start bg-white">
       <CaseStudyHero media={heroMedia} />
 
-      <div className="mx-auto flex w-full max-w-[1034px] gap-10 px-6 py-4 sm:px-12 sm:py-5 lg:gap-16">
+      <div className="mx-auto flex w-full max-w-[1200px] gap-10 px-6 py-4 sm:px-12 sm:py-5 lg:gap-16">
         <StickySideNav />
 
         <div className="flex min-w-0 flex-1 flex-col gap-10">
@@ -147,6 +149,8 @@ export function CaseStudyLayout({
           >
             <CaseStudySectionContent text={solution} />
           </CaseStudySection>
+
+          {solutionFollowUp}
 
           <Divider />
 
